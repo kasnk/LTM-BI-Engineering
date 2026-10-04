@@ -1,0 +1,20 @@
+Financial Profit:
+
+Profit Margin = divide([Total Profit],[Total Revenue])
+
+Revenue Previous Year = CALCULATE([Total Revenue],SAMEPERIODLASTYEAR(M2_Sales[OrderDate]))
+
+Revenue YoY % = DIVIDE(([Total Revenue]-[Revenue Previous Year]),[Revenue Previous Year])
+
+
+
+Support SLA:
+SLA Compliance % = divide(COUNTROWS(filter(E2_Tickets,E2_Tickets[ResolutionHours]<=E2_Tickets[SLAHours])),COUNTROWS(E2_Tickets))
+
+Total Tickets for the year_2025 = CALCULATE([Total Tickets],E2_Date[Year]=2025)
+
+Logistics:
+
+Delay Hours = max(0, M1_Shipments[ActualHours]-M1_Shipments[PlannedHours])
+
+On Time Delivery % = DIVIDE(CALCULATE([Total Shipments],M1_Shipments[DeliveryStatus]="On Time"),[Total Shipments])
